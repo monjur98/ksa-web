@@ -17,6 +17,7 @@
     <!-- Vendor CSS Files -->
     <link href="{{ asset('assets/admin/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/admin/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/46.1.1/ckeditor5.css" />
     <link href="https://cdn.jsdelivr.net/npm/datatables.net-bs5@1.13.6/css/dataTables.bootstrap5.min.css"
         rel="stylesheet">
 
@@ -28,9 +29,8 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
 
-    <!-- TinyMCE Text Editor -->
-    <script src="https://cdn.tiny.cloud/1/c0geaauf8kcpd72rpv8j8nr3npe0muigfc7ufo70wljq5a18/tinymce/8/tinymce.min.js"
-        referrerpolicy="origin" crossorigin="anonymous"></script>
+    <!-- CK Text Editor -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/46.1.1/ckeditor5.umd.js"></script>
 
     <!-- Data Table JS -->
     <script src="https://cdn.jsdelivr.net/npm/datatables.net@1.13.6/js/jquery.dataTables.min.js"></script>
@@ -133,6 +133,12 @@
                     <span>Core Value</span>
                 </a>
             </li><!-- End Core Value Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('service_list') }}">
+                    <i class="bi bi-briefcase"></i>
+                    <span>Service</span>
+                </a>
+            </li><!-- End Service Nav -->
         </ul>
     </aside>
     <!-- End Sidebar -->
@@ -215,6 +221,86 @@
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/admin/js/main.js') }}"></script>
     <script>
+        /* 
+         * Global CKEditor Init
+         */
+        const {
+            ClassicEditor,
+            Essentials,
+            Bold,
+            Italic,
+            Underline,
+            Strikethrough,
+            Subscript,
+            Superscript,
+            Font,
+            Paragraph,
+            Heading,
+            Alignment,
+            List,
+            Indent,
+            Link,
+            BlockQuote,
+            Code,
+            CodeBlock,
+            HorizontalLine,
+            SpecialCharacters,
+            SpecialCharactersEssentials,
+            Table,
+            TableToolbar
+        } = CKEDITOR;
+
+        ClassicEditor
+            .create(document.querySelector('.editor'), {
+                licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3OTAzODA3OTksImp0aSI6IjUzYmJhMzg1LTU2OTgtNGI3ZS1iZDU5LWQ2OTUyMzY3MjdjMCIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIiwiRTJQIiwiRTJXIl0sInZjIjoiNWQxM2FhYjgifQ.UVDA-5bZYCDWLqbKSZbZ1rR5I779NdmQ7Qrl7gVUGPe-UeU8gE8I0tmvcb_qbd7kYHIhc7ySplrw7lrBf_glNA',
+                plugins: [
+                    Essentials,
+                    Bold,
+                    Italic,
+                    Underline,
+                    Strikethrough,
+                    Subscript,
+                    Superscript,
+                    Font,
+                    Paragraph,
+                    Heading,
+                    Alignment,
+                    List,
+                    Indent,
+                    Link,
+                    BlockQuote,
+                    Code,
+                    CodeBlock,
+                    HorizontalLine,
+                    SpecialCharacters,
+                    SpecialCharactersEssentials,
+                    Table,
+                    TableToolbar
+                ],
+                toolbar: [
+                    'undo', 'redo', '|',
+                    'heading', '|',
+                    'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', '|',
+                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|',
+                    'alignment', '|',
+                    'numberedList', 'bulletedList', 'outdent', 'indent', '|',
+                    'link', 'blockQuote', 'code', 'codeBlock', '|',
+                    'insertTable', '|',
+                    'horizontalLine', 'specialCharacters'
+                ],
+                table: {
+                    contentToolbar: [
+                        'tableColumn',
+                        'tableRow',
+                        'mergeTableCells'
+                    ]
+                }
+            })
+            .then(editor => console.log('CKEditor initialized:', editor))
+            .catch(error => console.error(error));
+        /* 
+         * For Notification Alert 
+         */
         document.addEventListener('DOMContentLoaded', function() {
             const toastElList = [].slice.call(document.querySelectorAll('.toast'));
             toastElList.map(function(toastEl) {

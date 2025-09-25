@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeBannerController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\CoreValueController;
+use App\Http\Controllers\ServiceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -78,5 +79,15 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/core-value-update/{id}', 'update')->name('core_value_update');
         Route::delete('/core-value-delete/{id}', 'destroy')->name('core_value_destroy');
         Route::get('/core-value-all', 'getCoreValues')->name('core_value_all');
+    });
+
+    Route::controller(ServiceController::class)->group(function () {
+        Route::get('/service-list', 'index')->name('service_list');
+        Route::get('/service-add', 'create')->name('service_add');
+        Route::post('/service-store', 'store')->name('service_store');
+        Route::get('/service-edit/{id}/edit', 'edit')->name('service_edit');
+        Route::put('/service-update/{id}', 'update')->name('service_update');
+        Route::delete('/service-delete/{id}', 'destroy')->name('service_destroy');
+        Route::get('/service-all', 'getservices')->name('service_all');
     });
 });

@@ -33,9 +33,14 @@ h6 {
   font-family: "Outfit", sans-serif;
 }
 
-.form-label{
+.form-label {
   font-size: .9rem;
 }
+
+.ck-editor__editable_inline {
+  min-height: 250px;
+}
+
 /*--------------------------------------------------------------
 # Main
 --------------------------------------------------------------*/
