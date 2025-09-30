@@ -30,6 +30,7 @@ class ServiceController extends Controller
         $validated = $request->validate([
             'title'       => 'required|string|max:255',
             'description' => 'required',
+            'status' => 'nullable|in:0,1',
         ]);
 
         Service::create($validated);
@@ -63,6 +64,7 @@ class ServiceController extends Controller
         $validated = $request->validate([
             'title'       => 'required|string|max:255',
             'description' => 'required',
+            'status' => 'nullable|in:0,1',
         ]);
 
         $service->update($validated);
@@ -82,7 +84,7 @@ class ServiceController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function getservices(Request $request, Service $service)
+    public function getServices(Request $request, Service $service)
     {
         $service = Service::where('status', 1)->latest('id')->get();
         return response()->json(['data' => $service]);

@@ -139,6 +139,37 @@
                     <span>Service</span>
                 </a>
             </li><!-- End Service Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('about_list') }}">
+                    <i class="bi bi-clipboard"></i>
+                    <span>About</span>
+                </a>
+            </li><!-- End About Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#project-gallery-nav" data-bs-toggle="collapse"
+                    href="javascript:void(0)">
+                    <i class="bi bi-filetype-pdf"></i><span>Project Gallery</span><i
+                        class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="project-gallery-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="{{ route('project_gallery_type_list') }}">
+                            <i class="bi bi-circle-fill"></i><span>Types</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('project_gallery_type_list') }}">
+                            <i class="bi bi-circle-fill"></i><span>Projects</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Project Gallery Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('contact_list') }}">
+                    <i class="bi bi-megaphone"></i>
+                    <span>Contact</span>
+                </a>
+            </li><!-- End Contact Nav -->
         </ul>
     </aside>
     <!-- End Sidebar -->

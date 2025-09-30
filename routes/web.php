@@ -11,6 +11,9 @@ use App\Http\Controllers\HomeBannerController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\CoreValueController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProjectGalleryTypeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -88,6 +91,29 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/service-edit/{id}/edit', 'edit')->name('service_edit');
         Route::put('/service-update/{id}', 'update')->name('service_update');
         Route::delete('/service-delete/{id}', 'destroy')->name('service_destroy');
-        Route::get('/service-all', 'getservices')->name('service_all');
+        Route::get('/service-all', 'getServices')->name('service_all');
+    });
+
+    Route::controller(AboutController::class)->group(function () {
+        Route::get('/about-list', 'index')->name('about_list');
+        Route::get('/about-add', 'create')->name('about_add');
+        Route::post('/about-store', 'store')->name('about_store');
+        Route::get('/about-edit/{id}/edit', 'edit')->name('about_edit');
+        Route::put('/about-update/{id}', 'update')->name('about_update');
+    });
+
+    Route::controller(ContactController::class)->group(function () {
+        Route::get('/contact-list', 'index')->name('contact_list');
+        Route::get('/contact-add', 'create')->name('contact_add');
+        Route::post('/contact-store', 'store')->name('contact_store');
+        Route::get('/contact-edit/{id}/edit', 'edit')->name('contact_edit');
+        Route::put('/contact-update/{id}', 'update')->name('contact_update');
+    });
+
+    Route::controller(ProjectGalleryTypeController::class)->group(function () {
+        Route::get('/project-gallery-type-list', 'index')->name('project_gallery_type_list');
+        Route::post('/project-gallery-type-store', 'store')->name('project_gallery_type_store');
+        Route::get('/project-gallery-type-edit/{id}/edit', 'edit')->name('project_gallery_type_edit');
+        Route::put('/project-gallery-type-update/{id}', 'update')->name('project_gallery_type_update');
     });
 });

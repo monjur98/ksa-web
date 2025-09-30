@@ -32,6 +32,7 @@ class FeatureController extends Controller
             'title' => 'required|string|max:255',
             'icon' => 'required|string|max:255',
             'description' => 'required',
+            'status' => 'nullable|in:0,1',
         ]);
 
         Feature::create($validated);
@@ -66,6 +67,7 @@ class FeatureController extends Controller
             'title' => 'required|string|max:255',
             'icon' => 'required|string|max:255',
             'description' => 'required',
+            'status' => 'nullable|in:0,1',
         ]);
 
         $feature->update($validated);
