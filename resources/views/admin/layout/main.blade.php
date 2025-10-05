@@ -158,7 +158,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('project_gallery_type_list') }}">
+                        <a href="{{ route('project_gallery_list') }}">
                             <i class="bi bi-circle-fill"></i><span>Projects</span>
                         </a>
                     </li>
@@ -255,80 +255,98 @@
         /* 
          * Global CKEditor Init
          */
-        const {
-            ClassicEditor,
-            Essentials,
-            Bold,
-            Italic,
-            Underline,
-            Strikethrough,
-            Subscript,
-            Superscript,
-            Font,
-            Paragraph,
-            Heading,
-            Alignment,
-            List,
-            Indent,
-            Link,
-            BlockQuote,
-            Code,
-            CodeBlock,
-            HorizontalLine,
-            SpecialCharacters,
-            SpecialCharactersEssentials,
-            Table,
-            TableToolbar
-        } = CKEDITOR;
+        (function() {
+            const {
+                ClassicEditor,
+                Essentials,
+                Bold,
+                Italic,
+                Underline,
+                Strikethrough,
+                Subscript,
+                Superscript,
+                Font,
+                Paragraph,
+                Heading,
+                Alignment,
+                List,
+                Indent,
+                Link,
+                BlockQuote,
+                Code,
+                CodeBlock,
+                HorizontalLine,
+                SpecialCharacters,
+                SpecialCharactersEssentials,
+                Table,
+                TableToolbar
+            } = CKEDITOR;
 
-        ClassicEditor
-            .create(document.querySelector('.editor'), {
-                licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3OTAzODA3OTksImp0aSI6IjUzYmJhMzg1LTU2OTgtNGI3ZS1iZDU5LWQ2OTUyMzY3MjdjMCIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIiwiRTJQIiwiRTJXIl0sInZjIjoiNWQxM2FhYjgifQ.UVDA-5bZYCDWLqbKSZbZ1rR5I779NdmQ7Qrl7gVUGPe-UeU8gE8I0tmvcb_qbd7kYHIhc7ySplrw7lrBf_glNA',
-                plugins: [
-                    Essentials,
-                    Bold,
-                    Italic,
-                    Underline,
-                    Strikethrough,
-                    Subscript,
-                    Superscript,
-                    Font,
-                    Paragraph,
-                    Heading,
-                    Alignment,
-                    List,
-                    Indent,
-                    Link,
-                    BlockQuote,
-                    Code,
-                    CodeBlock,
-                    HorizontalLine,
-                    SpecialCharacters,
-                    SpecialCharactersEssentials,
-                    Table,
-                    TableToolbar
-                ],
-                toolbar: [
-                    'undo', 'redo', '|',
-                    'heading', '|',
-                    'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', '|',
-                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|',
-                    'alignment', '|',
-                    'numberedList', 'bulletedList', 'outdent', 'indent', '|',
-                    'link', 'blockQuote', 'code', 'codeBlock', '|',
-                    'insertTable', '|',
-                    'horizontalLine', 'specialCharacters'
-                ],
-                table: {
-                    contentToolbar: [
-                        'tableColumn',
-                        'tableRow',
-                        'mergeTableCells'
-                    ]
-                }
-            })
-            .then(editor => console.log('CKEditor initialized:', editor))
-            .catch(error => console.error(error));
+            // Find editor element
+            const el = document.querySelector('.editor');
+
+            if (!el) {
+                console.log('CKEditor: No element found with .editor class.');
+                return;
+            }
+
+            // Helper: filter out undefined plugins
+            const allPlugins = [
+                Essentials,
+                Bold,
+                Italic,
+                Underline,
+                Strikethrough,
+                Subscript,
+                Superscript,
+                Font,
+                Paragraph,
+                Heading,
+                Alignment,
+                List,
+                Indent,
+                Link,
+                BlockQuote,
+                Code,
+                CodeBlock,
+                HorizontalLine,
+                SpecialCharacters,
+                SpecialCharactersEssentials,
+                Table,
+                TableToolbar
+            ].filter(Boolean); // removes undefined values
+
+            // Initialize CKEditor safely
+            ClassicEditor
+                .create(el, {
+                    licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3OTAzODA3OTksImp0aSI6IjUzYmJhMzg1LTU2OTgtNGI3ZS1iZDU5LWQ2OTUyMzY3MjdjMCIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIiwiRTJQIiwiRTJXIl0sInZjIjoiNWQxM2FhYjgifQ.UVDA-5bZYCDWLqbKSZbZ1rR5I779NdmQ7Qrl7gVUGPe-UeU8gE8I0tmvcb_qbd7kYHIhc7ySplrw7lrBf_glNA',
+                    plugins: allPlugins,
+                    toolbar: [
+                        'undo', 'redo', '|',
+                        'heading', '|',
+                        'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', '|',
+                        'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|',
+                        'alignment', '|',
+                        'numberedList', 'bulletedList', 'outdent', 'indent', '|',
+                        'link', 'blockQuote', 'code', 'codeBlock', '|',
+                        'insertTable', '|',
+                        'horizontalLine', 'specialCharacters'
+                    ],
+                    table: {
+                        contentToolbar: [
+                            'tableColumn',
+                            'tableRow',
+                            'mergeTableCells'
+                        ]
+                    }
+                })
+                .then(editor => {
+                    console.log('CKEditor initialized:', editor);
+                })
+                .catch(error => {
+                    console.error('CKEditor failed to initialize:', error);
+                });
+        })();
         /* 
          * For Notification Alert 
          */

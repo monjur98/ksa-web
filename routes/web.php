@@ -14,6 +14,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProjectGalleryTypeController;
+use App\Http\Controllers\ProjectGalleryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -115,5 +116,15 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/project-gallery-type-store', 'store')->name('project_gallery_type_store');
         Route::get('/project-gallery-type-edit/{id}/edit', 'edit')->name('project_gallery_type_edit');
         Route::put('/project-gallery-type-update/{id}', 'update')->name('project_gallery_type_update');
+    });
+
+    Route::controller(ProjectGalleryController::class)->group(function () {
+        Route::get('/project-gallery-list', 'index')->name('project_gallery_list');
+        Route::get('/project-gallery-add', 'create')->name('project_gallery_add');
+        Route::post('/project-gallery-store', 'store')->name('project_gallery_store');
+        Route::get('/project-gallery-edit/{id}/edit', 'edit')->name('project_gallery_edit');
+        Route::put('/project-gallery-update/{id}', 'update')->name('project_gallery_update');
+        Route::delete('/project-gallery-delete/{id}', 'destroy')->name('project_gallery_destroy');
+        Route::get('/project-gallery-all', 'getProjectGallerys')->name('project_gallery_all');
     });
 });

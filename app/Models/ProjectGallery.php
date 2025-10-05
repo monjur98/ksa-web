@@ -9,4 +9,9 @@ class ProjectGallery extends Model
 {
     use HasFactory;
     protected $fillable = ['type_id', 'thumbnail', 'project_pdf', 'status'];
+
+    public function type()
+    {
+        return $this->belongsTo(ProjectGalleryType::class);
+    }
 }

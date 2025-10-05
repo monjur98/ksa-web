@@ -24,7 +24,7 @@
                                 @method('PUT')
                             @endif
 
-                            <!-- Title -->
+                            <!-- Type -->
                             <div class="col-md-4">
                                 <label class="form-label">Type</label>
                                 <input type="text" name="type" value="{{ old('type', $e_PGT->type ?? '') }}"

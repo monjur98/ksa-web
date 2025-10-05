@@ -112,6 +112,14 @@ li {
   list-style: none;
 }
 
+.nacc-li ul,
+.nacc-li ol,
+.nacc-li li {
+  padding: revert;
+  margin: revert;
+  list-style: revert;
+}
+
 header,
 nav,
 section,
@@ -981,7 +989,7 @@ section.about-us ul.nacc {
   padding: 0;
 }
 
-section.about-us ul.nacc li {
+section.about-us ul.nacc li.nacc-li {
   background-color: #fff;
   overflow: hidden;
   opacity: 0;
@@ -991,18 +999,18 @@ section.about-us ul.nacc li {
   transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-section.about-us ul.nacc li .main-list,
-section.about-us ul.nacc li .list-item {
+section.about-us ul.nacc li.nacc-li .main-list,
+section.about-us ul.nacc li.nacc-li .list-item {
   border-bottom: 1px solid #eee;
   margin-bottom: 25px;
   padding-bottom: 25px;
 }
 
-section.about-us ul.nacc li .last-item {
+section.about-us ul.nacc li.nacc-li .last-item {
   margin-bottom: 0px;
 }
 
-section.about-us ul.nacc li span.title {
+section.about-us ul.nacc li.nacc-li span.title {
   font-size: 15px;
   color: #212741;
   font-weight: 600;
@@ -1010,12 +1018,12 @@ section.about-us ul.nacc li span.title {
   width: 24%;
 }
 
-section.about-us ul.nacc li span.item-title {
+section.about-us ul.nacc li.nacc-li span.item-title {
   color: #43ba7f !important;
   font-weight: 600 !important;
 }
 
-section.about-us ul.nacc li span.item {
+section.about-us ul.nacc li.nacc-li span.item {
   font-size: 15px;
   color: #212741;
   font-weight: 400;
@@ -1023,7 +1031,7 @@ section.about-us ul.nacc li span.item {
   width: 24%;
 }
 
-section.about-us ul.nacc li.active {
+section.about-us ul.nacc li.nacc-li.active {
   position: relative;
   transition-delay: 0.3s;
   z-index: 2;
@@ -1081,6 +1089,7 @@ section.calculator .section-heading h4 {
   font-size: 14px;
   margin-bottom: 24px;
   outline: none;
+  padding: 0 12px;
 }
 
 #calculate select {

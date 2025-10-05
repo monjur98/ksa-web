@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\About;
 use Illuminate\Http\Request;
 
 class AboutPageController extends Controller
 {
     public function index()
     {
-        return view('website.about');
+        $about = About::first();
+        return view('website.about', compact('about'));
     }
 }
