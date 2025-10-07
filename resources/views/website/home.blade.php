@@ -125,40 +125,38 @@
                         <h6>Your Freedom</h6>
                         <h4>Get a Quote</h4>
                     </div>
-                    <form id="calculate" action="" method="get">
+                    <form id="calculate" action="{{ route('enquiry_quote') }}" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <fieldset>
                                     <label for="name">Your Name</label>
-                                    <input type="name" name="name" id="name" placeholder="" autocomplete="on"
-                                        required>
+                                    <input type="text" name="name" placeholder="" autocomplete="on" required>
                                 </fieldset>
                             </div>
                             <div class="col-md-6">
                                 <fieldset>
                                     <label for="email">Your Phone</label>
-                                    <input type="tel" name="phone" id="phone" pattern="[0-9]{10}" placeholder=""
-                                        required="">
+                                    <input type="tel" name="phone" pattern="[0-9]{10}" placeholder="" required="">
                                 </fieldset>
                             </div>
                             <div class="col-md-6">
                                 <fieldset>
                                     <label for="email">Your Email</label>
-                                    <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*"
-                                        placeholder="" required="">
+                                    <input type="text" name="email" pattern="[^ @]*@[^ @]*" placeholder=""
+                                        required="">
                                 </fieldset>
                             </div>
                             <div class="col-md-6">
                                 <fieldset>
                                     <label for="subject">Subject</label>
-                                    <input type="subject" name="subject" id="subject" placeholder="" autocomplete="on">
+                                    <input type="subject" name="subject" placeholder="" autocomplete="on">
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
                                     <label for="chooseOption" class="form-label">Your Reason</label>
-                                    <select name="Category" class="form-select" aria-label="Default select example"
-                                        id="chooseOption" onchange="this.form.click()">
+                                    <select name="reason" class="form-select">
                                         <option selected>Choose an Option</option>
                                         <option value="Steel Joist & Girder detailing">Steel Joist & Girder detailing
                                         </option>

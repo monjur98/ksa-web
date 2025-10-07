@@ -181,6 +181,10 @@ p {
   vertical-align: middle;
 }
 
+.z-1050 {
+  z-index: 1050;
+}
+
 /* 
 ---------------------------------------------
 global styles

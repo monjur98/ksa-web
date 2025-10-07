@@ -114,6 +114,12 @@
                     <span>Dashboard</span>
                 </a>
             </li><!-- End Dashboard Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('enquiry_list') }}">
+                    <i class="bi bi-chat-right-text"></i>
+                    <span>Enquiry</span>
+                </a>
+            </li><!-- End Contact Nav -->
             <li class="nav-heading">Main</li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ route('home_banner_list') }}">

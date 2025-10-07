@@ -69,7 +69,7 @@ class ProjectGalleryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ProjectGallery $projectGallery)
+    public function update(Request $request, ProjectGallery $projectGallery, $id)
     {
         $projectGallery = ProjectGallery::findOrFail($id);
 
@@ -81,15 +81,15 @@ class ProjectGalleryController extends Controller
         ]);
 
         if ($request->hasFile('thumbnail')) {
-            if ($homeBanner->thumbnail && \Storage::disk('public')->exists($homeBanner->thumbnail)) {
-                \Storage::disk('public')->delete($homeBanner->thumbnail);
+            if ($projectGallery->thumbnail && \Storage::disk('public')->exists($projectGallery->thumbnail)) {
+                \Storage::disk('public')->delete($projectGallery->thumbnail);
             }
             $validated['thumbnail'] = $request->file('thumbnail')->store('thumbnails', 'public');
         }
 
         if ($request->hasFile('project_pdf')) {
-            if ($homeBanner->project_pdf && \Storage::disk('public')->exists($homeBanner->project_pdf)) {
-                \Storage::disk('public')->delete($homeBanner->project_pdf);
+            if ($projectGallery->project_pdf && \Storage::disk('public')->exists($projectGallery->project_pdf)) {
+                \Storage::disk('public')->delete($projectGallery->project_pdf);
             }
             $validated['project_pdf'] = $request->file('project_pdf')->store('projectPDF', 'public');
         }

@@ -58,7 +58,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 @if ($contact)
-                                                    <iframe src="{{ $contact->map }}" width="100%" height="250px"
+                                                    <iframe src="{{ $contact->map ?? '' }}" width="100%" height="250px"
                                                         style="border:0; border-radius: 5px;" allowfullscreen=""
                                                         loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                                 @endif

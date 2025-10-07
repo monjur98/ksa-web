@@ -63,6 +63,41 @@
         </div>
     </header>
     <!-- ***** Header Area End ***** -->
+    <!-- Display success message -->
+    @if (session('success'))
+        <div class="toast-container position-fixed bottom-0 end-0 pb-4 pe-4 z-1050">
+            <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true"
+                data-bs-delay="10000">
+                <div class="toast-header bg-success">
+                    <strong class="me-auto text-white"><i class="bi bi-patch-check me-2"></i></i>
+                        Notification</strong>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    {{ session('success') }}
+                </div>
+            </div>
+        </div>
+    @endif
+    <!-- Display error message -->
+    @if (session('error'))
+        <div class="toast-container position-fixed bottom-0 end-0 pb-4 pe-4 z-1050">
+            <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true"
+                data-bs-delay="10000">
+                <div class="toast-header bg-danger">
+                    <strong class="me-auto text-white"><i class="bi bi-patch-exclamation me-2"></i>
+                        Notification</strong>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    {{ session('error') }}
+                </div>
+            </div>
+        </div>
+    @endif
+    <!-- Display content -->
     @yield('content')
     <!-- ***** Footer Area Start ***** -->
     <footer class="footer">

@@ -15,6 +15,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProjectGalleryTypeController;
 use App\Http\Controllers\ProjectGalleryController;
+use App\Http\Controllers\EnquiryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +36,10 @@ Route::controller(ContactPageController::class)->group(function () {
     Route::get('/contact-us', 'index')->name('contact_page');
 });
 
+Route::controller(EnquiryController::class)->group(function () {
+    Route::post('/enquiry-quote', 'storeQuote')->name('enquiry_quote');
+    Route::post('/enquiry-contact', 'storeContact')->name('enquiry_contact');
+});
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
@@ -44,6 +49,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('/login', 'login')->name('login');
     Route::post('/login-process', 'loginProcess')->name('login_process');
 });
+
 Route::middleware(['auth'])->group(function () {
     Route::controller(AuthController::class)->group(function () {
         Route::get('/registration', 'registration')->name('registration');
@@ -126,5 +132,13 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/project-gallery-update/{id}', 'update')->name('project_gallery_update');
         Route::delete('/project-gallery-delete/{id}', 'destroy')->name('project_gallery_destroy');
         Route::get('/project-gallery-all', 'getProjectGallerys')->name('project_gallery_all');
+    });
+
+    Route::controller(EnquiryController::class)->group(function () {
+        Route::get('/enquiry-list', 'index')->name('enquiry_list');
+        Route::get('/enquiry-edit/{id}/edit', 'edit')->name('enquiry_edit');
+        Route::put('/enquiry-update/{id}', 'update')->name('enquiry_update');
+        Route::delete('/enquiry-delete/{id}', 'destroy')->name('enquiry_destroy');
+        Route::get('/enquiry-all', 'getEnquiries')->name('enquiry_all');
     });
 });
