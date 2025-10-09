@@ -81,6 +81,9 @@
                                         {{ isset($e_project) && $e_project->status == 0 ? 'selected' : '' }}>
                                         Inactive</option>
                                 </select>
+                                @error('status')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
 
                             <!-- Submit -->

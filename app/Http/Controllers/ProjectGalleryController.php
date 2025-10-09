@@ -32,7 +32,7 @@ class ProjectGalleryController extends Controller
             'type_id' => 'required',
             'thumbnail' => 'required|image|mimes:jpg,jpeg,png,webp|max:1024',
             'project_pdf' => 'required|mimes:pdf',
-            'status' => 'nullable|in:0,1',
+            'status' => 'required|in:0,1',
         ]);
 
         // Handle thumbnail upload
@@ -77,7 +77,7 @@ class ProjectGalleryController extends Controller
             'type_id' => 'required',
             'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:1024',
             'project_pdf' => 'required|mimes:pdf',
-            'status' => 'nullable|in:0,1',
+            'status' => 'required|in:0,1',
         ]);
 
         if ($request->hasFile('thumbnail')) {

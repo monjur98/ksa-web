@@ -70,6 +70,13 @@
 
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link nav-icon" href="{{ route('enquiry_list') }}">
+                        <i class="bi bi-chat-left-text"></i>
+                        <span class="badge bg-success badge-number">{{ enquiryQTY() }}</span>
+                    </a>
+                </li>
+                <!-- End Messages Icon -->
                 <li class="nav-item dropdown pe-3">
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
                         data-bs-toggle="dropdown">

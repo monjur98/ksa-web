@@ -54,7 +54,7 @@
                             </tbody>
                         </table>
                         <!-- Form -->
-                        <form action="{{ route('enquiry_update', $e_enquiry->id) }}" class="row g-3" method="PUT">
+                        <form action="{{ route('enquiry_update', $e_enquiry->id) }}" class="row g-3" method="POST">
                             @csrf
                             @method('PUT')
                             <!-- Status -->

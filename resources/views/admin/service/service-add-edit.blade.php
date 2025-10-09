@@ -46,6 +46,9 @@
                                         {{ isset($e_service) && $e_service->status == 0 ? 'selected' : '' }}>
                                         Inactive</option>
                                 </select>
+                                @error('status')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
 
                             <!-- Description -->
@@ -55,7 +58,7 @@
                                 @error('description')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
-                            </div>                            
+                            </div>
 
                             <!-- Submit -->
                             <div class="col-12 text-center">

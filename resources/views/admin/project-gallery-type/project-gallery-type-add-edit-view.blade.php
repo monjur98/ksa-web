@@ -45,6 +45,9 @@
                                     <option value="0" {{ isset($e_PGT) && $e_PGT->status == 0 ? 'selected' : '' }}>
                                         Inactive</option>
                                 </select>
+                                @error('status')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
 
                             <!-- Submit -->
@@ -94,7 +97,8 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <a role="button" href="{{ route('project_gallery_type_edit', $item->id) }}"
+                                                <a role="button"
+                                                    href="{{ route('project_gallery_type_edit', $item->id) }}"
                                                     class="btn btn-link text-primary text-decoration-none btn-sm">
                                                     <i class="bi bi-pencil-square"></i>
                                                 </a>

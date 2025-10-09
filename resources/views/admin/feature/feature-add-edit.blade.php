@@ -47,7 +47,7 @@
                             <!-- Description -->
                             <div class="col-12">
                                 <label class="form-label">Description</label>
-                                <textarea name="description" rows="3" class="form-control">{{ old('title', $e_feature->title ?? '') }}</textarea>
+                                <textarea name="description" rows="3" class="form-control">{{ old('description', $e_feature->description ?? '') }}</textarea>
                                 @error('description')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
@@ -65,6 +65,9 @@
                                         {{ isset($e_feature) && $e_feature->status == 0 ? 'selected' : '' }}>
                                         Inactive</option>
                                 </select>
+                                @error('status')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
 
                             <!-- Submit -->

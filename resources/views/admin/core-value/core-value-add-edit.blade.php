@@ -56,6 +56,9 @@
                                         {{ isset($e_coreValue) && $e_coreValue->status == 0 ? 'selected' : '' }}>
                                         Inactive</option>
                                 </select>
+                                @error('status')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
 
                             <!-- Submit -->

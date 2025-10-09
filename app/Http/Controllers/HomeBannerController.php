@@ -31,7 +31,7 @@ class HomeBannerController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'image' => 'required|image|mimes:webp|max:1024',
-            'status' => 'nullable|in:0,1',
+            'status' => 'required|in:0,1',
         ]);
 
         if ($request->hasFile('image')) {
@@ -69,7 +69,7 @@ class HomeBannerController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:webp|max:1024',
-            'status' => 'nullable|in:0,1',
+            'status' => 'required|in:0,1',
         ]);
 
         if ($request->hasFile('image')) {

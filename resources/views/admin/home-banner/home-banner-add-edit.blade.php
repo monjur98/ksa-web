@@ -61,6 +61,9 @@
                                         {{ isset($e_homeBanner) && $e_homeBanner->status == 0 ? 'selected' : '' }}>
                                         Inactive</option>
                                 </select>
+                                @error('status')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
 
                             <!-- Submit -->

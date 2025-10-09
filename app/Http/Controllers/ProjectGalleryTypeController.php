@@ -31,7 +31,7 @@ class ProjectGalleryTypeController extends Controller
     {
         $validated = $request->validate([
             'type' => 'required|string|max:255',
-           'status' => 'nullable|in:0,1',
+            'status' => 'required|in:0,1',
         ]);
 
         ProjectGalleryType::create($validated);
@@ -63,7 +63,7 @@ class ProjectGalleryTypeController extends Controller
         $projectGalleryType = ProjectGalleryType::findOrFail($id);
         $validated = $request->validate([
             'type' => 'required|string|max:255',
-           'status' => 'nullable|in:0,1',            
+            'status' => 'required|in:0,1',
         ]);
 
         $projectGalleryType->update($validated);

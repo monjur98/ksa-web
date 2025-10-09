@@ -31,7 +31,7 @@ class CoreValueController extends Controller
         $validated = $request->validate([
             'icon' => 'required|string|max:255',
             'name' => 'required|string|max:255',
-            'status' => 'nullable|in:0,1',
+            'status' => 'required|in:0,1',
         ]);
 
         CoreValue::create($validated);
@@ -65,7 +65,7 @@ class CoreValueController extends Controller
         $validated = $request->validate([
             'icon' => 'required|string|max:255',
             'name' => 'required|string|max:255',
-            'status' => 'nullable|in:0,1',
+            'status' => 'required|in:0,1',
         ]);
 
         $coreValue->update($validated);
