@@ -66,7 +66,7 @@
                         "name": "icon",
                         "autoWidth": true,
                         render: function(data, type, row) {
-                            return `<i class="${row.icon} h3" style="color:#de6026;"></i>`;
+                            return `<i class="bi ${data} h3" style="color:#de6026;"></i>`;
                         }
                     },
                     {

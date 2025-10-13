@@ -22,7 +22,6 @@
         rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="{{ asset('assets/admin/css/fontawesome.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/admin/css/style.css') }}" rel="stylesheet">
 
     <!-- Jquery JS -->

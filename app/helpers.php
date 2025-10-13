@@ -1,6 +1,7 @@
 <?php
 use App\Models\ProjectGalleryType;
 use App\Models\Enquiry;
+use App\Models\Contact;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,9 @@ function enquiryQTY()
 {
     return Enquiry::where('status', 0)->count();
 }
+
+function contactInfo()
+{
+    return Contact::select('phone', 'email', 'address')->first();
+}
+

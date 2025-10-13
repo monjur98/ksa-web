@@ -9,60 +9,58 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <!-- Favicons -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/fav_icon.ico') }}">
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
-        rel="stylesheet">
-    <!-- Bootstrap Core CSS -->
+    <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Vendor CSS Files -->
     <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/site.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/owl.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+    <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Main CSS File -->
+    <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
 </head>
 
 <body>
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="{{ route('home_page') }}" class="logo">
-                            <img src="assets/images/Ksa-logo.png" alt="KSA">
-                        </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
-                            <li><a href="{{ route('home_page') }}"
-                                    class="{{ request()->routeIs('home_page') ? 'active' : '' }}">Home</a></li>
-                            <li><a href="{{ route('home_page') }}#services">Services</a>
-                            </li>
-                            <li><a href="{{ route('about_page') }}"
-                                    class="{{ request()->routeIs('about_page') ? 'active' : '' }}">About KSA</a></li>
-                            <li><a href="{{ route('project_gallery_page') }}"
-                                    class="{{ request()->routeIs('project_gallery_page') ? 'active' : '' }}">Project
-                                    Gallery</a></li>
-                            <li><a href="{{ route('contact_page') }}"
-                                    class="{{ request()->routeIs('contact_page') ? 'active' : '' }}">Contact Us</a>
-                            </li>
-                            <li><a href="{{ route('home_page') }}#quote">Get
-                                    A Quote <i class="fa-regular fa-comment"></i></a></li>
-                        </ul>
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
-                        <!-- ***** Menu End ***** -->
-                    </nav>
-                </div>
-            </div>
+    <!-- Header Area Start -->
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div
+            class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+            <a href="{{ route('home_page') }}" class="logo d-flex align-items-center">
+                <img src="{{ asset('assets/img/Ksa-logo.png') }}" alt="KSA">
+            </a>
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="{{ route('home_page') }}"
+                            class="{{ request()->routeIs('home_page') ? 'active' : '' }}">Home</a></li>
+                    <li><a href="{{ route('home_page') }}#services">Services</a></li>
+                    <li><a href="{{ route('about_page') }}"
+                            class="{{ request()->routeIs('about_page') ? 'active' : '' }}">About KSA</a></li>
+                    <li><a href="{{ route('project_gallery_page') }}"
+                            class="{{ request()->routeIs('project_gallery_page') ? 'active' : '' }}">Project
+                            Gallery</a></li>
+                    <li><a href="{{ route('contact_page') }}"
+                            class="{{ request()->routeIs('contact_page') ? 'active' : '' }}">Contact</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+
+            <a class="btn-getstarted d-none d-md-block d-lg-block" href="{{ route('home_page') }}#quote">Get
+                Quote</a>
+
         </div>
     </header>
-    <!-- ***** Header Area End ***** -->
+
     <!-- Display success message -->
     @if (session('success'))
         <div class="toast-container position-fixed bottom-0 end-0 pb-4 pe-4 z-1050">
@@ -97,11 +95,40 @@
             </div>
         </div>
     @endif
+
     <!-- Display content -->
-    @yield('content')
-    <!-- ***** Footer Area Start ***** -->
-    <footer class="footer">
-        <div class="container copyright text-center">
+    <main class="main">
+        @yield('content')
+    </main>
+    <!-- Footer Area Start -->
+    @php
+        $contact = contactInfo();
+    @endphp
+    <footer id="footer" class="footer position-relative light-background">
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <div class="footer-contact pt-3">
+                        <h3><i class="bi bi-geo-alt icon"></i></h3>
+                        <p>{{ $contact->address ?? '' }}</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <div class="footer-contact pt-3">
+                        <h3><i class="bi bi-telephone"></i></h3>
+                        <p>+91 {{ $contact->phone ?? '' }}</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <div class="footer-contact pt-3">
+                        <h3><i class="bi bi-envelope-at"></i></h3>
+                        <p>{{ $contact->email ?? '' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container copyright text-center mt-4">
             <p>&copy; <span>
                     <script>
                         document.write(new Date().getFullYear());
@@ -114,61 +141,29 @@
             </div>
         </div>
     </footer>
-    <!-- ***** Footer Area End ***** -->
-    <!-- Scripts -->
-    <!-- Bootstrap core JavaScript -->
-    <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
+
+    <!-- Scroll Top -->
+    <a href="javascript:void(0)" id="scroll-top"
+        class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
+    <script src="{{ asset('assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
 
-    <script src="{{ asset('assets/js/isotope.min.js') }}"></script>
-    <script src="{{ asset('assets/js/owl-carousel.js') }}"></script>
-
-    <script src="{{ asset('assets/js/tabs.js') }}"></script>
-    <script src="{{ asset('assets/js/swiper.js') }}"></script>
-    <script src="{{ asset('assets/js/custom.js') }}"></script>
-    <script>
-        var interleaveOffset = 0.5;
-
-        var swiperOptions = {
-            loop: true,
-            speed: 1000,
-            grabCursor: true,
-            watchSlidesProgress: true,
-            mousewheelControl: true,
-            keyboardControl: true,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
-            },
-            on: {
-                progress: function() {
-                    var swiper = this;
-                    for (var i = 0; i < swiper.slides.length; i++) {
-                        var slideProgress = swiper.slides[i].progress;
-                        var innerOffset = swiper.width * interleaveOffset;
-                        var innerTranslate = slideProgress * innerOffset;
-                        swiper.slides[i].querySelector(".slide-inner").style.transform =
-                            "translate3d(" + innerTranslate + "px, 0, 0)";
-                    }
-                },
-                touchStart: function() {
-                    var swiper = this;
-                    for (var i = 0; i < swiper.slides.length; i++) {
-                        swiper.slides[i].style.transition = "";
-                    }
-                },
-                setTransition: function(speed) {
-                    var swiper = this;
-                    for (var i = 0; i < swiper.slides.length; i++) {
-                        swiper.slides[i].style.transition = speed + "ms";
-                        swiper.slides[i].querySelector(".slide-inner").style.transition =
-                            speed + "ms";
-                    }
-                }
-            }
-        };
-        var swiper = new Swiper(".swiper-container", swiperOptions);
-    </script>
+    <!-- Main JS File -->
+    <script src="{{ asset('assets/js/main.js') }}"></script>
     @yield('script')
 </body>
 
