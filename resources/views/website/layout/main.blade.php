@@ -47,17 +47,16 @@
                     <li><a href="{{ route('about_page') }}"
                             class="{{ request()->routeIs('about_page') ? 'active' : '' }}">About KSA</a></li>
                     <li><a href="{{ route('project_gallery_page') }}"
-                            class="{{ request()->routeIs('project_gallery_page') ? 'active' : '' }}">Project
-                            Gallery</a></li>
+                            class="{{ request()->routeIs('project_gallery_page') ? 'active' : '' }}">Projects
+                        </a></li>
+                    <li><a href="{{ route('project_gallery_page') }}"
+                            class="{{ request()->routeIs('project_gallery_page') ? 'active' : '' }}">Gallery
+                        </a></li>
                     <li><a href="{{ route('contact_page') }}"
                             class="{{ request()->routeIs('contact_page') ? 'active' : '' }}">Contact</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
-
-            <a class="btn-getstarted d-none d-md-block d-lg-block" href="{{ route('home_page') }}#quote">Get
-                Quote</a>
-
         </div>
     </header>
 
@@ -142,6 +141,31 @@
         </div>
     </footer>
 
+    <!-- Floting BTN -->
+    <div class="fab-container">
+        <div class="fab shadow">
+            <div class="fab-content">
+                <span class="material-icons">
+                    <i class="bi bi-headset"></i>
+                </span>
+            </div>
+        </div>
+        <div class="sub-button">
+            <a href="{{ route('home_page') }}#quote">
+                <span class="material-icons"><i class="bi bi-chat-left-quote"></i></span>
+            </a>
+        </div>
+        <div class="sub-button">
+            <a href="javascript:void(0)" target="_blank">
+                <span class="material-icons"><i class="bi bi-facebook"></i></span>
+            </a>
+        </div>
+        <div class="sub-button">
+            <a href="javascript:void(0)" target="_blank">
+                <span class="material-icons"><i class="bi bi-linkedin"></i></span>
+            </a>
+        </div>
+    </div>
     <!-- Scroll Top -->
     <a href="javascript:void(0)" id="scroll-top"
         class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

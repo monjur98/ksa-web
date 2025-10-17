@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Feature extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'icon', 'description', 'status'];
+    protected $fillable = ['title', 'icon', 'description', 'color', 'status'];
 }

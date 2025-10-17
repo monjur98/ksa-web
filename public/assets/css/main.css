@@ -1186,7 +1186,6 @@ section,
 .about .feature-card .feature-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #ff6b6b 30%));
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -1313,6 +1312,10 @@ section,
   text-align: center;
   box-shadow: 0 4px 12px color-mix(in srgb, var(--default-color), transparent 92%);
   color: var(--default-color);
+}
+
+.schedule .schedule-header .nav-tabs .nav-item .nav-link.home-tab {
+  min-height: 76px;
 }
 
 .schedule .schedule-header .nav-tabs .nav-item .nav-link:hover {
@@ -4736,4 +4739,81 @@ Project Gallery
 .card-inner .box .icon .iconBox i {
   color: #fff;
   font-size: 1.5rem;
+}
+
+/* 
+ * Flotting BTN
+ */
+
+.fab-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  user-select: none;
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+}
+
+.fab-container:hover {
+  height: 100%;
+}
+
+.fab-container:hover .sub-button:nth-child(2) {
+  transform: translateY(-60px);
+}
+
+.fab-container:hover .sub-button:nth-child(3) {
+  transform: translateY(-110px);
+}
+
+.fab-container:hover .sub-button:nth-child(4) {
+  transform: translateY(-160px);
+}
+
+.fab-container .fab {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  background-color: #22ca4c;
+  border-radius: 50% 50% 10% 50%;
+  z-index: 9;
+}
+
+.fab-container .fab .fab-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.fab-container .fab .fab-content .material-icons {
+  color: white;
+  font-size: 25px;
+}
+
+.fab-container .sub-button {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 1px;
+  left: 1px;
+  height: 46px;
+  width: 46px;
+  background: linear-gradient(145deg, var(--accent-color),
+      color-mix(in srgb, var(--accent-color), #1a4372 30%));
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+
+.fab-container .sub-button:hover {
+  cursor: pointer;
+}
+
+.fab-container .sub-button .material-icons {
+  color: white;
+  padding-top: 6px;
 }

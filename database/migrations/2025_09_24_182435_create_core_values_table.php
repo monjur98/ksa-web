@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('icon');
             $table->string('name');
+            $table->string('color');
             $table->tinyInteger('status')->default(1)->comment('0: Inactive, 1: Active');
             $table->timestamps();
         });

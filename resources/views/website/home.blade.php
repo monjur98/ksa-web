@@ -31,7 +31,7 @@
                     @forelse ($feature as $item)
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                             <div class="feature-card">
-                                <div class="feature-icon">
+                                <div class="feature-icon" style="background:{{ $item->color ?? '#DE6026' }}">
                                     <i class="bi {{ $item->icon }}"></i>
                                 </div>
                                 <h4>{{ $item->title }}</h4>
@@ -55,7 +55,7 @@
             <div class="row g-4">
                 @forelse ($coreValue as $item)
                     <div class="col-lg-4 col-md-6 text-center" data-aos="fade-up" data-aos-delay="200">
-                        <h2><i class="bi {{ $item->icon }} text-danger"></i></h2>
+                        <h2><i class="bi {{ $item->icon }}" style="color:{{ $item->color ?? '#DE6026' }};"></i></h2>
                         <h5>{{ $item->name }}</h5>
                     </div>
                 @empty
@@ -80,7 +80,7 @@
                     <ul class="nav nav-tabs" id="schedule-tabs" role="tablist">
                         @foreach ($service as $index => $item)
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link {{ $loop->first ? 'active' : '' }}"
+                                <button class="nav-link home-tab {{ $loop->first ? 'active' : '' }}"
                                     id="schedule-tab-{{ $index }}" data-bs-toggle="tab"
                                     data-bs-target="#schedule-tab-pane-{{ $index }}" type="button" role="tab"
                                     aria-controls="schedule-tab-pane-{{ $index }}"

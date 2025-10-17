@@ -26,10 +26,25 @@
 
                             <!-- Icon -->
                             <div class="col-md-4">
-                                <label class="form-label">Icon</label>
-                                <input type="text" name="icon" value="{{ old('icon', $e_coreValue->icon ?? '') }}"
-                                    class="form-control">
+                                <label class="form-label">
+                                    <a href="https://icons.getbootstrap.com/" class="me-2" target="_blank"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Click to get Icon">
+                                        <i class="bi bi-info-circle"></i>
+                                    </a> Icon <small class="text-warning">(Only class name)</small>
+                                </label>
+                                <input type="text" name="icon" placeholder="bi-xyz"
+                                    value="{{ old('icon', $e_coreValue->icon ?? '') }}" class="form-control">
                                 @error('icon')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+
+                            <!-- Color -->
+                            <div class="col-md-4">
+                                <label class="form-label">Icon Color</label>
+                                <input type="color" name="color" value="{{ old('color', $e_coreValue->color ?? '') }}"
+                                    class="form-control form-control-color w-100">
+                                @error('color')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>
@@ -62,7 +77,8 @@
                             </div>
 
                             <!-- Submit -->
-                            <div class="col-12 text-center">
+                            <div class="col-md-4">
+                                <div class="no-label"></div>
                                 <button type="submit"
                                     class="btn rounded-pill px-3 {{ isset($e_coreValue) ? 'btn-success' : 'btn-primary' }}">
                                     @if (isset($e_coreValue))

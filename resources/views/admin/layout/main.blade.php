@@ -248,7 +248,7 @@
             </form>
         </div>
     </div>
-    <!-- ======= Footer ======= -->
+    <!-- Footer -->
     <footer id="footer" class="footer">
         <div class="copyright">
             &copy;
@@ -359,6 +359,14 @@
                     console.error('CKEditor failed to initialize:', error);
                 });
         })();
+
+        /* 
+         * For Notification Alert 
+         */
+        $(function() {
+            $('[data-bs-toggle="tooltip"]').tooltip();
+        });
+
         /* 
          * For Notification Alert 
          */
@@ -369,6 +377,7 @@
                 toast.show();
             });
         });
+
         $(document).ready(function() {
             /* 
              * For (DELETE) Alert 
@@ -377,7 +386,7 @@
                 var button = $(event.relatedTarget);
                 var deletedID = button.data('id');
                 var deletedURL = button.data('url');
-                $('#deleteForm').attr('action', '/admin/' + deletedURL + '/' + deletedID);
+                $('#deleteForm').attr('action', '/' + deletedURL + '/' + deletedID);
             });
 
             /* 

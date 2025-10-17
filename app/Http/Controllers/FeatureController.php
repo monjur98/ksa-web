@@ -32,6 +32,7 @@ class FeatureController extends Controller
             'title' => 'required|string|max:255',
             'icon' => 'required|string|max:255',
             'description' => 'required',
+            'color' => 'required',
             'status' => 'required|in:0,1',
         ]);
 
@@ -67,6 +68,7 @@ class FeatureController extends Controller
             'title' => 'required|string|max:255',
             'icon' => 'required|string|max:255',
             'description' => 'required',
+            'color' => 'required',
             'status' => 'required|in:0,1',
         ]);
 

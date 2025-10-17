@@ -36,9 +36,14 @@
 
                             <!-- Icon -->
                             <div class="col-md-4">
-                                <label class="form-label">Icon</label>
-                                <input type="text" name="icon" value="{{ old('icon', $e_feature->icon ?? '') }}"
-                                    class="form-control">
+                                <label class="form-label">
+                                    <a href="https://icons.getbootstrap.com/" class="me-2" target="_blank"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Click to get Icon">
+                                        <i class="bi bi-info-circle"></i>
+                                    </a> Icon <small class="text-warning">(Only class name)</small>
+                                </label>
+                                <input type="text" name="icon" placeholder="bi-xyz"
+                                    value="{{ old('icon', $e_feature->icon ?? '') }}" class="form-control">
                                 @error('icon')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
@@ -49,6 +54,16 @@
                                 <label class="form-label">Description</label>
                                 <textarea name="description" rows="3" class="form-control">{{ old('description', $e_feature->description ?? '') }}</textarea>
                                 @error('description')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+
+                            <!-- Color -->
+                            <div class="col-md-4">
+                                <label class="form-label">Box Color</label>
+                                <input type="color" name="color" value="{{ old('color', $e_feature->color ?? '') }}"
+                                    class="form-control form-control-color w-100">
+                                @error('color')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
                             </div>

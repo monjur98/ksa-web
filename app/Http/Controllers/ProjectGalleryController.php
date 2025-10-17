@@ -76,7 +76,7 @@ class ProjectGalleryController extends Controller
         $validated = $request->validate([
             'type_id' => 'required',
             'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:1024',
-            'project_pdf' => 'required|mimes:pdf',
+            'project_pdf' => 'nullable|mimes:pdf',
             'status' => 'required|in:0,1',
         ]);
 

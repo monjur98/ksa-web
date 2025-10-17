@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class CoreValue extends Model
 {
     use HasFactory;
-    protected $fillable = ['icon', 'name', 'status'];
+    protected $fillable = ['icon', 'name', 'color', 'status'];
 }
