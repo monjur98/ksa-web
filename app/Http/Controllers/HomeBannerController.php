@@ -98,7 +98,7 @@ class HomeBannerController extends Controller
      */
     public function getHomeBanners(Request $request, HomeBanner $homeBanner)
     {
-        $hobeBanner = HomeBanner::where('status', 1)->latest('id')->get();
-        return response()->json(['data' => $hobeBanner]);
+        $homeBanner = HomeBanner::latest('id')->get();
+        return response()->json(['data' => $homeBanner]);
     }
 }

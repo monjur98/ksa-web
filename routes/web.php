@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\AboutPageController;
 use App\Http\Controllers\ProjectGalleryPageController;
+use App\Http\Controllers\CompanyGalleryPageController;
+use App\Http\Controllers\CareerPageController;
 use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
@@ -15,7 +17,9 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProjectGalleryTypeController;
 use App\Http\Controllers\ProjectGalleryController;
+use App\Http\Controllers\CompanyGalleryController;
 use App\Http\Controllers\EnquiryController;
+use App\Http\Controllers\CareerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,11 +35,15 @@ Route::controller(AboutPageController::class)->group(function () {
 Route::controller(ProjectGalleryPageController::class)->group(function () {
     Route::get('/project-gallery', 'index')->name('project_gallery_page');
 });
-
+Route::controller(CompanyGalleryPageController::class)->group(function () {
+    Route::get('/company-gallery', 'index')->name('company_gallery_page');
+});
+Route::controller(CareerPageController::class)->group(function () {
+    Route::get('/career', 'index')->name('career_page');
+});
 Route::controller(ContactPageController::class)->group(function () {
     Route::get('/contact-us', 'index')->name('contact_page');
 });
-
 Route::controller(EnquiryController::class)->group(function () {
     Route::post('/enquiry-quote', 'storeQuote')->name('enquiry_quote');
     Route::post('/enquiry-contact', 'storeContact')->name('enquiry_contact');
@@ -140,5 +148,25 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/enquiry-update/{id}', 'update')->name('enquiry_update');
         Route::delete('/enquiry-delete/{id}', 'destroy')->name('enquiry_destroy');
         Route::get('/enquiry-all', 'getEnquiries')->name('enquiry_all');
+    });
+
+    Route::controller(CompanyGalleryController::class)->group(function () {
+        Route::get('/company-gallery-list', 'index')->name('company_gallery_list');
+        Route::get('/company-gallery-add', 'create')->name('company_gallery_add');
+        Route::post('/company-gallery-store', 'store')->name('company_gallery_store');
+        Route::get('/company-gallery-edit/{id}/edit', 'edit')->name('company_gallery_edit');
+        Route::put('/company-gallery-update/{id}', 'update')->name('company_gallery_update');
+        Route::delete('/company-gallery-delete/{id}', 'destroy')->name('company_gallery_destroy');
+        Route::get('/company-gallery-all', 'getCompanyGallerys')->name('company_gallery_all');
+    });
+
+    Route::controller(CareerController::class)->group(function () {
+        Route::get('/career-list', 'index')->name('career_list');
+        Route::get('/career-add', 'create')->name('career_add');
+        Route::post('/career-store', 'store')->name('career_store');
+        Route::get('/career-edit/{id}/edit', 'edit')->name('career_edit');
+        Route::put('/career-update/{id}', 'update')->name('career_update');
+        Route::delete('/career-delete/{id}', 'destroy')->name('career_destroy');
+        Route::get('/career-all', 'getCareers')->name('career_all');
     });
 });

@@ -49,8 +49,11 @@
                     <li><a href="{{ route('project_gallery_page') }}"
                             class="{{ request()->routeIs('project_gallery_page') ? 'active' : '' }}">Projects
                         </a></li>
-                    <li><a href="{{ route('project_gallery_page') }}"
-                            class="{{ request()->routeIs('project_gallery_page') ? 'active' : '' }}">Gallery
+                    <li><a href="{{ route('company_gallery_page') }}"
+                            class="{{ request()->routeIs('company_gallery_page') ? 'active' : '' }}">Gallery
+                        </a></li>
+                    <li><a href="{{ route('career_page') }}"
+                            class="{{ request()->routeIs('career_page') ? 'active' : '' }}">Career
                         </a></li>
                     <li><a href="{{ route('contact_page') }}"
                             class="{{ request()->routeIs('contact_page') ? 'active' : '' }}">Contact</a></li>
@@ -146,7 +149,7 @@
         <div class="fab shadow">
             <div class="fab-content">
                 <span class="material-icons">
-                    <i class="bi bi-headset"></i>
+                    <img src="{{ asset('assets/img/helpdesk.png') }}" alt="Help Desk">
                 </span>
             </div>
         </div>

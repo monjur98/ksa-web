@@ -86,7 +86,7 @@ class ServiceController extends Controller
      */
     public function getServices(Request $request, Service $service)
     {
-        $service = Service::where('status', 1)->latest('id')->get();
+        $service = Service::latest('id')->get();
         return response()->json(['data' => $service]);
     }
 }

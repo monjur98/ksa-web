@@ -91,7 +91,7 @@ class FeatureController extends Controller
      */
     public function getFeatures(Request $request, Feature $feature)
     {
-        $feature = Feature::where('status', 1)->latest('id')->get();
+        $feature = Feature::latest('id')->get();
         return response()->json(['data' => $feature]);
     }
 }

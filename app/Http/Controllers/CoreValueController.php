@@ -89,7 +89,7 @@ class CoreValueController extends Controller
      */
     public function getCoreValues(Request $request, CoreValue $coreValue)
     {
-        $coreValue = CoreValue::where('status', 1)->latest('id')->get();
+        $coreValue = CoreValue::latest('id')->get();
         return response()->json(['data' => $coreValue]);
     }
 }

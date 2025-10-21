@@ -1389,7 +1389,6 @@ section,
   background: var(--surface-color);
   border-radius: 16px;
   padding: 28px;
-  margin-left: 20px;
   box-shadow: 0 4px 20px color-mix(in srgb, var(--default-color), transparent 92%);
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
   transition: all 0.3s ease;
@@ -4776,7 +4775,7 @@ Project Gallery
   position: relative;
   height: 50px;
   width: 50px;
-  background-color: #22ca4c;
+  background-color: #ffd1bb;
   border-radius: 50% 50% 10% 50%;
   z-index: 9;
 }
@@ -4787,6 +4786,10 @@ Project Gallery
   justify-content: center;
   height: 100%;
   width: 100%;
+}
+
+.fab-container .fab .fab-content .material-icons img {
+  width: 36px;
 }
 
 .fab-container .fab .fab-content .material-icons {

@@ -177,6 +177,18 @@
                 </ul>
             </li><!-- End Project Gallery Nav -->
             <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('company_gallery_list') }}">
+                    <i class="bi bi-images"></i>
+                    <span>Company’s Gallery</span>
+                </a>
+            </li><!-- End About Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('career_list') }}">
+                    <i class="bi bi-person-badge"></i>
+                    <span>Career</span>
+                </a>
+            </li><!-- End Contact Nav -->
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ route('contact_list') }}">
                     <i class="bi bi-megaphone"></i>
                     <span>Contact</span>
