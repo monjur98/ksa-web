@@ -15,7 +15,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <table class="table datatable table-sm" id="enquiryList">
+                        <table class="table datatable table-sm" id="enquiryLists">
                             <thead>
                                 <tr>
                                     <th scope="col">SL.</th>
@@ -38,69 +38,76 @@
         });
 
         function getEnquiry() {
-            if ($.fn.DataTable.isDataTable('#enquiryList')) {
-                $('#enquiryList').DataTable().destroy();
+            if ($.fn.DataTable.isDataTable('#enquiryLists')) {
+                $('#enquiryLists').DataTable().clear().destroy();
             }
-            $('#enquiryList').DataTable({
-                "ajax": {
-                    "url": "{{ route('enquiry_all') }}",
-                    "type": "GET",
-                    "dataType": "json",
+
+            $('#enquiryLists').DataTable({
+                ajax: {
+                    url: "{{ route('enquiry_all') }}",
+                    type: "GET",
+                    dataType: "json",
                 },
-                "columns": [{
-                        "data": null,
-                        "name": "serial_number",
-                        "render": function(data, type, row, meta) {
+
+                columns: [{
+                        data: null,
+                        name: "serial_number",
+                        render: function(data, type, row, meta) {
                             return meta.row + 1;
-                        },
-                        "autoWidth": true
+                        }
                     },
                     {
-                        "data": "name",
-                        "name": "name",
-                        "autoWidth": true,
+                        data: "name",
+                        name: "name"
                     },
                     {
-                        "data": "status",
-                        "name": "status",
-                        "autoWidth": true,
-                        "render": function(data) {
-                            switch (data) {
+                        data: "status",
+                        name: "status",
+                        render: function(data) {
+                            switch (Number(data)) {
                                 case 0:
-                                    return `<span class="badge rounded-0 bg-warning-subtle text-warning-emphasis">
-                                                <i class="bi bi-hourglass"></i> Pending
-                                            </span>`;
+                                    return `
+                                <span class="badge rounded-0 bg-warning-subtle text-warning-emphasis">
+                                    <i class="bi bi-hourglass"></i> Pending
+                                </span>`;
                                 case 1:
-                                    return `<span class="badge rounded-0 bg-success-subtle text-success-emphasis">
-                                                <i class="bi bi-check-circle"></i> Complete
-                                            </span>`;
+                                    return `
+                                <span class="badge rounded-0 bg-success-subtle text-success-emphasis">
+                                    <i class="bi bi-check-circle"></i> Complete
+                                </span>`;
                                 case 2:
-                                    return `<span class="badge rounded-0 bg-danger-subtle text-danger-emphasis">
-                                                <i class="bi bi-ban"></i> Reject
-                                            </span>`;
+                                    return `
+                                <span class="badge rounded-0 bg-danger-subtle text-danger-emphasis">
+                                    <i class="bi bi-ban"></i> Reject
+                                </span>`;
                                 default:
                                     return '';
                             }
                         }
                     },
                     {
-                        "data": "id",
-                        "name": "actions",
-                        "render": function(data, type, row) {
+                        data: "id",
+                        name: "actions",
+                        orderable: false,
+                        searchable: false,
+                        render: function(data, type, row) {
                             let editUrl = `/enquiry-edit/${data}/edit`;
-                            let buttons = `<a role="button" href="${editUrl}" class="btn btn-link text-primary text-decoration-none btn-sm">
-                                <i class="bi bi-pencil-square"></i></a>`;
-                            buttons += `<button type="button" class="btn btn-link text-danger text-decoration-none btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" 
-                            data-id="${data}" data-url="enquiry-delete"><i class="bi bi-trash"></i></button>`;
-                            return buttons;
+                            return `
+                        <a href="${editUrl}" class="btn btn-link text-primary text-decoration-none btn-sm">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <button type="button" 
+                            class="btn btn-link text-danger text-decoration-none btn-sm" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#deleteModal"
+                            data-id="${data}" 
+                            data-url="enquiry-delete">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    `;
                         }
                     }
-                ],
-                "columnDefs": [{
-                    "targets": -1,
-                    "orderable": false,
-                    "searchable": false,
-                }]
+                ]
             });
         }
     </script>

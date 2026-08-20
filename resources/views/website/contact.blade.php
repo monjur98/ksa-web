@@ -67,8 +67,8 @@
                     <div class="social-links-panel">
                         <h5>Follow Us</h5>
                         <div class="social-icons">
-                            <a href="#"><i class="bi bi-facebook"></i></a>
-                            <a href="#"><i class="bi bi-linkedin"></i></a>
+                            <a href="https://www.facebook.com/share/1B4oSaghcg/" target="_blank"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.linkedin.com/in/kolkata-steel-associates" target="_blank"><i class="bi bi-linkedin"></i></a>
                         </div>
                     </div>
                 </div>

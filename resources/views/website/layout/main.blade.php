@@ -37,7 +37,7 @@
         <div
             class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
             <a href="{{ route('home_page') }}" class="logo d-flex align-items-center">
-                <img src="{{ asset('assets/img/Ksa-logo.png') }}" alt="KSA">
+                <img src="{{ asset('assets/img/ksa-logo.png') }}" alt="KSA">
             </a>
             <nav id="navmenu" class="navmenu">
                 <ul>
@@ -159,12 +159,12 @@
             </a>
         </div>
         <div class="sub-button">
-            <a href="javascript:void(0)" target="_blank">
+            <a href="https://www.facebook.com/share/1B4oSaghcg/" target="_blank">
                 <span class="material-icons"><i class="bi bi-facebook"></i></span>
             </a>
         </div>
         <div class="sub-button">
-            <a href="javascript:void(0)" target="_blank">
+            <a href="https://www.linkedin.com/in/kolkata-steel-associates" target="_blank">
                 <span class="material-icons"><i class="bi bi-linkedin"></i></span>
             </a>
         </div>

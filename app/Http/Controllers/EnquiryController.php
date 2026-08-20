@@ -138,7 +138,7 @@ class EnquiryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function getEnquiries(Request $request, Enquiry $enquiry)
+    public function getEnquiries(Request $request)
     {
         $enquiry = Enquiry::latest('id')->get();
         return response()->json(['data' => $enquiry]);

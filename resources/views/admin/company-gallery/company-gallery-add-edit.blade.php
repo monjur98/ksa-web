@@ -1,11 +1,11 @@
 @extends('admin.layout.main')
 @section('content')
     <div class="pagetitle">
-        <h1>Home Banner</h1>
+        <h1>Company Gallery</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
-                <li class="breadcrumb-item active">{{ isset($e_companyGallery) ? 'Edit' : 'Add' }} Home Banner</li>
+                <li class="breadcrumb-item active">{{ isset($e_companyGallery) ? 'Edit' : 'Add' }} Company Gallery</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
